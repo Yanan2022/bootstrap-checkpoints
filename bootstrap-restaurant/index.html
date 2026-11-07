@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- Page d'accueil du restaurant fictif "Le Comptoir d'Abidjan" -->
+<!-- Checkpoint GOMYCODE : système de grille Bootstrap -->
+<html lang="fr">
+
+<head>
+  <!-- Encodage des caractères (accents) -->
+  <meta charset="UTF-8">
+  <!-- Indispensable pour que Bootstrap soit "responsive" sur mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Comptoir d'Abidjan | Restaurant</title>
+
+  <!-- Bootstrap 5 (CSS) chargé depuis le CDN jsDelivr -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons : icônes des réseaux sociaux du pied de page -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Police Google "Playfair Display" pour les titres (thème restaurant élégant) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Notre feuille de style personnalisée : chargée APRÈS Bootstrap pour pouvoir le modifier -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ===================================================== -->
+  <!-- 1. EN-TÊTE : BARRE DE NAVIGATION                       -->
+  <!-- navbar-expand-lg : menu complet sur grand écran,       -->
+  <!-- menu "hamburger" sur mobile et tablette                -->
+  <!-- fixed-top : barre fixée en haut de l'écran             -->
+  <!-- ===================================================== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-restaurant">
+      <!-- container : centre le contenu avec des marges automatiques -->
+      <div class="container">
+
+        <!-- Nom du restaurant, à GAUCHE -->
+        <a class="navbar-brand" href="#accueil">
+          <i class="bi bi-cup-hot"></i> Le Comptoir d'Abidjan
+        </a>
+
+        <!-- Bouton "hamburger" : visible uniquement sur petit écran -->
+        <!-- data-bs-toggle / data-bs-target : ouvre ou ferme le menu #menuPrincipal -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal" aria-expanded="false" aria-label="Ouvrir le menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Liens de navigation -->
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <!-- ms-auto (margin-start auto) : pousse les liens à DROITE -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="#accueil">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="#a-propos">À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================================================== -->
+    <!-- 2. SECTION PRINCIPALE (HERO)                           -->
+    <!-- L'image de fond est définie dans style.css (.hero)     -->
+    <!-- d-flex + align-items-center + justify-content-center : -->
+    <!-- centre le contenu verticalement et horizontalement     -->
+    <!-- ===================================================== -->
+    <section id="accueil" class="hero d-flex align-items-center justify-content-center text-center text-white">
+      <div class="container">
+        <!-- Petit badge Bootstrap au-dessus du titre -->
+        <span class="badge rounded-pill bg-warning text-dark mb-3">Ouvert tous les jours · 11h à 23h</span>
+        <!-- display-3 : grand titre Bootstrap -->
+        <h1 class="display-3 fw-bold">Une cuisine qui raconte Abidjan</h1>
+        <!-- lead : paragraphe mis en valeur -->
+        <p class="lead mb-4">Des produits frais du marché, cuisinés avec passion et servis avec le sourire.</p>
+        <!-- btn-lg : grand bouton -->
+        <a href="#menu" class="btn btn-warning btn-lg px-5 rounded-pill">Découvrir le menu</a>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 3. SECTION MENU : GRILLE DE CARTES                     -->
+    <!-- py-5 : marge intérieure verticale                      -->
+    <!-- ===================================================== -->
+    <section id="menu" class="py-5 bg-creme">
+      <div class="container">
+
+        <!-- Titre de section centré -->
+        <div class="text-center mb-5">
+          <p class="sur-titre">Nos spécialités</p>
+          <h2 class="titre-section">Le menu du chef</h2>
+        </div>
+
+        <!-- row : une ligne de la grille ; g-4 : espace entre les colonnes -->
+        <div class="row g-4">
+
+          <!-- GRILLE RESPONSIVE :                                    -->
+          <!-- col-12   : 1 carte par ligne sur téléphone              -->
+          <!-- col-md-6 : 2 cartes par ligne sur tablette              -->
+          <!-- col-lg-4 : 3 cartes par ligne sur ordinateur            -->
+
+          <!-- ---------- Plat 1 ---------- -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <!-- h-100 : toutes les cartes ont la même hauteur -->
+            <div class="card h-100 border-0 shadow-sm carte-plat">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" class="card-img-top"
+                alt="Bol de salade colorée avec avocat et légumes frais">
+              <div class="card-body">
+                <!-- d-flex + justify-content-between : titre à gauche, prix à droite -->
+                <div class="d-flex justify-content-between align-items-start">
+                  <h3 class="card-title h5">Bowl tropical</h3>
+                  <span class="badge bg-success prix">4 500 FCFA</span>
+                </div>
+                <p class="card-text text-muted">Avocat, mangue, crudités croquantes et quinoa, vinaigrette au citron vert et gingembre.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Plat 2 ---------- -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm carte-plat">
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80" class="card-img-top"
+                alt="Pizza garnie sortant du four">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                  <h3 class="card-title h5">Pizza du Comptoir</h3>
+                  <span class="badge bg-success prix">6 000 FCFA</span>
+                </div>
+                <p class="card-text text-muted">Pâte fine cuite au feu de bois, sauce tomate maison, mozzarella et poulet braisé au piment doux.</p>
+                <!-- Badge supplémentaire pour mettre un plat en avant -->
+                <span class="badge text-bg-danger">Coup de cœur</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---------- Plat 3 ---------- -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm carte-plat">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80" class="card-img-top"
+                alt="Burger maison avec frites">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                  <h3 class="card-title h5">Burger maison</h3>
+                  <span class="badge bg-success prix">5 500 FCFA</span>
+                </div>
+                <p class="card-text text-muted">Steak de bœuf grillé, cheddar fondu, oignons caramélisés et alloco en accompagnement.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 4. SECTION À PROPOS : DEUX COLONNES                    -->
+    <!-- ===================================================== -->
+    <section id="a-propos" class="py-5">
+      <div class="container">
+        <!-- align-items-center : centre verticalement les deux colonnes -->
+        <div class="row align-items-center g-5">
+
+          <!-- Colonne 1 : image (pleine largeur sur mobile, moitié sur tablette et +) -->
+          <div class="col-md-6">
+            <!-- img-fluid : l'image ne dépasse jamais la largeur de sa colonne -->
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80"
+              class="img-fluid rounded-4 shadow" alt="Salle du restaurant chaleureuse et éclairée">
+          </div>
+
+          <!-- Colonne 2 : texte -->
+          <div class="col-md-6">
+            <p class="sur-titre">À propos de nous</p>
+            <h2 class="titre-section mb-4">Une histoire de goût et de partage</h2>
+            <p>
+              Né en 2018 au cœur de Cocody, <strong>Le Comptoir d'Abidjan</strong> mêle les saveurs ivoiriennes
+              aux grands classiques de la cuisine du monde. Notre chef travaille chaque matin avec les produits
+              frais des marchés locaux.
+            </p>
+            <p class="text-muted">
+              Ici, on vient pour un déjeuner rapide, un dîner en famille ou une soirée entre amis :
+              l'ambiance est simple, chaleureuse, et chaque assiette est préparée à la minute.
+            </p>
+
+            <!-- Petite grille imbriquée : 3 chiffres clés -->
+            <div class="row text-center mt-4">
+              <div class="col-4">
+                <p class="chiffre">8</p>
+                <p class="small text-muted">ans d'expérience</p>
+              </div>
+              <div class="col-4">
+                <p class="chiffre">40+</p>
+                <p class="small text-muted">plats à la carte</p>
+              </div>
+              <div class="col-4">
+                <p class="chiffre">4,8★</p>
+                <p class="small text-muted">avis clients</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 5. SECTION CONTACT : FORMULAIRE                        -->
+    <!-- ===================================================== -->
+    <section id="contact" class="py-5 bg-creme">
+      <div class="container">
+
+        <div class="text-center mb-5">
+          <p class="sur-titre">Contact</p>
+          <h2 class="titre-section">Réservez votre table</h2>
+        </div>
+
+        <!-- justify-content-center : centre la colonne du formulaire -->
+        <div class="row justify-content-center">
+          <!-- col-lg-8 : le formulaire occupe 8 colonnes sur 12 sur grand écran -->
+          <div class="col-lg-8">
+            <form class="bg-white p-4 p-md-5 rounded-4 shadow-sm" action="#" method="post">
+              <!-- row g-3 : grille à l'intérieur du formulaire -->
+              <div class="row g-3">
+
+                <!-- Nom : moitié de la largeur sur tablette et + -->
+                <div class="col-md-6">
+                  <label for="nom" class="form-label">Nom</label>
+                  <!-- form-control : style Bootstrap des champs -->
+                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom" required>
+                </div>
+
+                <!-- E-mail : l'autre moitié -->
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Adresse e-mail</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="exemple@mail.com" required>
+                </div>
+
+                <!-- Message : toute la largeur (col-12) -->
+                <div class="col-12">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea class="form-control" id="message" name="message" rows="5"
+                    placeholder="Date, heure et nombre de personnes..." required></textarea>
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-warning btn-lg px-5 rounded-pill">Envoyer</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================== -->
+  <!-- 6. PIED DE PAGE                                        -->
+  <!-- ===================================================== -->
+  <footer class="pied py-4 text-white">
+    <div class="container">
+      <!-- Sur mobile : éléments empilés et centrés ; sur tablette et + : sur une ligne -->
+      <div class="row align-items-center text-center text-md-start">
+
+        <!-- Copyright à gauche -->
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2026 Le Comptoir d'Abidjan. Tous droits réservés.</p>
+        </div>
+
+        <!-- Icônes des réseaux sociaux à droite (text-md-end) -->
+        <div class="col-md-6 text-md-end">
+          <!-- Liens de substitution (#) : pas de vraies pages -->
+          <a href="#" class="icone-sociale" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="icone-sociale" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="icone-sociale" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+          <a href="#" class="icone-sociale" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS : nécessaire pour le menu "hamburger" sur mobile -->
+  <!-- Placé en fin de page pour ne pas ralentir l'affichage -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

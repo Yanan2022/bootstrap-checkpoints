@@ -1,0 +1,203 @@
+/* =========================================================
+   STYLES PERSONNALISÉS DE L'AGENCE "ÉVASION VOYAGES"
+   Chargé APRÈS Bootstrap pour adapter ses couleurs au thème voyage
+   (bleu océan + orange coucher de soleil).
+   ========================================================= */
+
+/* ---------- Couleurs du thème ---------- */
+:root {
+  --ocean: #0b3d5c;        /* bleu profond : navigation et pied de page */
+  --accent: #ff7a45;       /* orange coucher de soleil */
+  --accent-fonce: #e85d27; /* orange au survol */
+  --clair: #f3f8fb;        /* fond bleuté très clair */
+}
+
+/* Défilement fluide + décalage pour la barre fixe */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+/* Police Poppins pour toute la page */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #1f2d3d;
+}
+
+/* ---------- Classes utilitaires personnalisées ---------- */
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-clair {
+  background-color: var(--clair);
+}
+
+.sur-titre {
+  margin-bottom: 0.25rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ---------- Boutons personnalisés ---------- */
+/* Bouton plein orange */
+.btn-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background-color: var(--accent-fonce);
+  border-color: var(--accent-fonce);
+  color: #fff;
+}
+
+/* Bouton contour orange */
+.btn-outline-accent {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Barre de navigation ---------- */
+.navbar-voyage {
+  background-color: rgba(11, 61, 92, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+.navbar-voyage .nav-link {
+  font-weight: 500;
+}
+
+.navbar-voyage .nav-link:hover,
+.navbar-voyage .nav-link.active {
+  color: var(--accent);
+}
+
+/* ---------- Section principale (hero / jumbotron) ---------- */
+.hero {
+  min-height: 100vh;
+  padding-top: 80px;
+  /* Image de plage + voile bleu pour la lisibilité.
+     La couleur océan en dernier sert de secours si l'image ne charge pas. */
+  background:
+    linear-gradient(rgba(11, 61, 92, 0.55), rgba(0, 0, 0, 0.45)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80") center / cover no-repeat,
+    var(--ocean);
+}
+
+/* Ombre légère sous le texte pour plus de lisibilité */
+.hero h1,
+.hero .lead {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Cartes des destinations ---------- */
+.carte-destination {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.carte-destination:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem rgba(11, 61, 92, 0.15) !important;
+}
+
+/* Images de même hauteur, recadrées */
+.carte-destination .card-img-top {
+  height: 230px;
+  object-fit: cover;
+  background-color: #cfe0ea; /* couleur affichée pendant le chargement */
+}
+
+/* ---------- Accordéon ---------- */
+.accordion {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Élément ouvert : fond légèrement orangé au lieu du bleu Bootstrap */
+.accordion-button:not(.collapsed) {
+  background-color: #fff1ea;
+  color: var(--ocean);
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 122, 69, 0.25);
+}
+
+/* Lien "Voir les détails" */
+.lien-details {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lien-details:hover {
+  color: var(--accent-fonce);
+  text-decoration: underline;
+}
+
+/* ---------- Formulaire ---------- */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(255, 122, 69, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------- Pied de page ---------- */
+.pied {
+  background-color: var(--ocean);
+}
+
+.icone-sociale {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.icone-sociale:hover {
+  background-color: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ---------- Adaptation mobile ---------- */
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .icone-sociale {
+    margin: 0 4px;
+  }
+}

@@ -1,0 +1,174 @@
+/* =========================================================
+   STYLES PERSONNALISÉS DU RESTAURANT "LE COMPTOIR D'ABIDJAN"
+   Ce fichier est chargé APRÈS Bootstrap : ses règles
+   personnalisent (et remplacent si besoin) celles de Bootstrap.
+   ========================================================= */
+
+/* ---------- Couleurs du thème (variables CSS) ---------- */
+:root {
+  --brun: #2b1d16;        /* brun chocolat : barre de nav et pied de page */
+  --orange: #e8952b;      /* orange épicé : accents */
+  --creme: #fbf6ef;       /* fond crème des sections */
+}
+
+/* Défilement fluide vers les ancres + décalage pour la barre fixe */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+/* Police du texte courant */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #3a2c25;
+}
+
+/* Police élégante pour les titres */
+h1, h2, h3,
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ---------- Barre de navigation ---------- */
+.navbar-restaurant {
+  background-color: rgba(43, 29, 22, 0.92); /* brun légèrement transparent */
+  backdrop-filter: blur(6px);
+}
+
+.navbar-restaurant .navbar-brand {
+  color: var(--orange);
+  font-size: 1.4rem;
+}
+
+/* Lien actif ou survolé en orange */
+.navbar-restaurant .nav-link:hover,
+.navbar-restaurant .nav-link.active {
+  color: var(--orange);
+}
+
+/* ---------- Section principale (hero) ---------- */
+.hero {
+  min-height: 100vh; /* prend toute la hauteur de l'écran */
+  /* Image de fond avec un voile sombre (dégradé) pour que le texte reste lisible.
+     La couleur brune en dernier sert de secours si l'image ne charge pas. */
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80") center / cover no-repeat,
+    var(--brun);
+}
+
+/* ---------- Boutons : on remplace le jaune Bootstrap par notre orange ---------- */
+.btn-warning {
+  background-color: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.btn-warning:hover {
+  background-color: #c97a17;
+  border-color: #c97a17;
+  color: #fff;
+}
+
+.badge.bg-warning {
+  background-color: var(--orange) !important; /* !important : priorité sur Bootstrap */
+  color: #fff !important;
+}
+
+/* ---------- Titres de section ---------- */
+.sur-titre {
+  margin-bottom: 0.25rem;
+  color: var(--orange);
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.titre-section {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+/* Fond crème pour alterner les sections */
+.bg-creme {
+  background-color: var(--creme);
+}
+
+/* ---------- Cartes du menu ---------- */
+.carte-plat {
+  border-radius: 1rem;
+  overflow: hidden;              /* l'image respecte les coins arrondis */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Effet au survol : la carte se soulève */
+.carte-plat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Images de même hauteur, recadrées proprement */
+.carte-plat .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  background-color: #e9dfd3;     /* couleur affichée pendant le chargement */
+}
+
+.prix {
+  font-size: 0.85rem;
+  white-space: nowrap;           /* le prix ne se coupe pas sur deux lignes */
+}
+
+/* ---------- Chiffres clés (À propos) ---------- */
+.chiffre {
+  margin-bottom: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+/* ---------- Formulaire : couleur du contour au focus ---------- */
+.form-control:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 0.2rem rgba(232, 149, 43, 0.25);
+}
+
+/* ---------- Pied de page ---------- */
+.pied {
+  background-color: var(--brun);
+}
+
+/* Icônes rondes des réseaux sociaux */
+.icone-sociale {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.icone-sociale:hover {
+  background-color: var(--orange);
+  color: #fff;
+}
+
+/* ---------- Adaptation mobile ---------- */
+@media (max-width: 767px) {
+  .titre-section {
+    font-size: 1.8rem;
+  }
+
+  /* Icônes centrées : pas de marge à gauche de la première */
+  .icone-sociale {
+    margin: 0 4px;
+  }
+}
